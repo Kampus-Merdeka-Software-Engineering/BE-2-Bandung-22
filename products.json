@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Cappucino",
+    "price": 25000,
+    "catalog": "coffee"
+  },
+  {
+    "id": 2,
+    "name": "Americano",
+    "price": 18000,
+    "catalog": "coffee"
+  }
+]
