@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Menu {
+  idMenu    Int      @id @default(autoincrement())
+  namaMenu  String
+  jumlah    Int
+  harga     Int
+  is_rekomend String
+
+}
+
+model Menu_Transaksi {
+  idMenu          Int       @id @default(autoincrement())
+  idTransaksi     String
+  totalHarga      Int
+  
+}
+
+model Transaksi {
+  idTransaksi     Int      @id @default(autoincrement())
+  namPemesan      String
+  noHp            String
+  tanggal         DateTime   @default(now())
+  totalHarga      Int 
+  // Transaksi   Menu_Transaksi? @relation(fields: [idTransaksi], references: [id])
+}
