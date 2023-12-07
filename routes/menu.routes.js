@@ -1,5 +1,5 @@
 const express = require("express");
-const menutRoutes = express.Router();
+const menuRoutes = express.Router();
 const { prisma } = require("../config/prisma.js");
 
 // get menu
@@ -25,8 +25,6 @@ menuRoutes.get("/:id", async (req, res) => {
 //create menu
 menuRoutesoutes.post("/", async (req, res) => {
   const { namaMenu } = req.body;
-  // todo - handle if name is not passed in
-  // if (!name) res.status(400).json({ message: "Name is required" });
   const newMenu = await prisma.menu.create({
     data: {
       namaMenu: namaMenu,
