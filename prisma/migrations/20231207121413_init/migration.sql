@@ -2,9 +2,9 @@
 CREATE TABLE `Menu` (
     `idMenu` INTEGER NOT NULL AUTO_INCREMENT,
     `namaMenu` VARCHAR(191) NOT NULL,
-    `jumlah` INTEGER NOT NULL,
-    `harga` INTEGER NOT NULL,
-    `is_rekomend` VARCHAR(191) NOT NULL,
+    `harga` VARCHAR(191) NOT NULL,
+    `image` VARCHAR(191) NOT NULL,
+    `description` VARCHAR(191) NOT NULL,
 
     PRIMARY KEY (`idMenu`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

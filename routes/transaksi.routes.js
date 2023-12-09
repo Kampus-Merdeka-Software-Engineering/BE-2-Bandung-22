@@ -25,8 +25,7 @@ transaksiRoutes.get("/:idTransaksi", async (req, res) => {
 // create transaksi
 transaksiRoutes.post("/", async (req, res) => {
   const { name } = req.body;
-  // todo - handle if name is not passed in
-  // if (!name) res.status(400).json({ message: "Name is required" });
+
   const newCatalog = await prisma.transaksi.create({
     data: {
       name: name,

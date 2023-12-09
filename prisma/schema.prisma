@@ -13,9 +13,9 @@ datasource db {
 model Menu {
   idMenu    Int      @id @default(autoincrement())
   namaMenu  String
-  jumlah    Int
   harga     Int
-  is_rekomend String
+  image     String
+  description   String
 
 }
 
