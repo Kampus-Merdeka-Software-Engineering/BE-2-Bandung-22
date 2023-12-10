@@ -1,9 +1,9 @@
 const express = require("express");
 const menuRoutes = express.Router();
-const { prisma } = require("../config/prisma.js");
+const { prisma } = require("../config/prisma");
 
 // get menu
-menuRoutes.get("/", async (req, res) => {
+menuRoutes.get("/menu", async (req, res) => {
   const menu = await prisma.menu.findMany();
   res.status(200).send(menu);
 });
@@ -20,48 +20,6 @@ menuRoutes.get("/:id", async (req, res) => {
       message: "Menu not Found",
     });
   else res.status(200).json(menu);
-});
-
-//create menu
-menuRoutesoutes.post("/", async (req, res) => {
-  const { namaMenu } = req.body;
-  const newMenu = await prisma.menu.create({
-    data: {
-      namaMenu: namaMenu,
-    },
-  });
-  res.status(201).json({
-    message: "Menu created",
-    data: newMenu,
-  });
-});
-
-//update menu
-
-menuRoutesRoutes.put("/:id", async (req, res) => {
-  const { idMenu } = req.params;
-  const { namaMenu } = req.body;
-  const updateMenu = await prisma.menu.update({
-    where: { id: parseInt(id) },
-    data: { namaMenu: namaMenu },
-  });
-  res.status(200).json({
-    message: `menu with idMenu: ${id} is updated`,
-    data: updatedMenu,
-  });
-});
-
-// delete Menu
-menuRoutes.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  await prisma.menu.delete({
-    where: {
-      id: parseInt(id),
-    },
-  });
-  res.status(200).json({
-    message: `menu with idMenu: ${id} successfully deleted`,
-  });
 });
 
 module.exports = { menuRoutes };

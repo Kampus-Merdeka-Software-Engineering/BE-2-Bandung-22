@@ -2,8 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { menuRoutes } = require("./routes/menu.routes");
-const { menu_transaksiRoutes } = require("./routes/menu_transaksi.routes");
-const { transaksiRoutes } = require("./routes/transaksi.routes");
+const { transaksi_dineinRoutes } = require("./routes/transaksi_dinein.routes");
+const {
+  transaksi_takeawayRoutes,
+} = require("./routes/transaksi_takeaway.routes");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -18,12 +20,9 @@ app.get("/", async (req, res) => {
 // catalog routes
 app.use("/Menu", menuRoutes);
 
-// products routes
-app.use("/Menu-Transaksi", menu_transaksiRoutes);
-
 // messages routes
-app.use("/Transaksi", transaksiRoutes);
-
+app.use("/Transaksi", transaksi_dineinRoutes);
+app.use("/Transaksi", transaksi_takeawayRoutes);
 app.all("*", async (req, res) => {
   res.json({
     message: "Routes you're looking is not found",

@@ -19,18 +19,20 @@ model Menu {
 
 }
 
-model Menu_Transaksi {
-  idMenu          Int       @id @default(autoincrement())
-  idTransaksi     String
-  totalHarga      Int
-  
-}
 
-model Transaksi {
+model TakeAway {
   idTransaksi     Int      @id @default(autoincrement())
   namPemesan      String
   noHp            String
   tanggal         DateTime   @default(now())
   totalHarga      Int 
+  
+}
+
+model Dinein {
+  idTransaksi     Int      @id @default(autoincrement())
+  namPemesan      String
+  noHp            String
+  noMeja          String
   
 }
