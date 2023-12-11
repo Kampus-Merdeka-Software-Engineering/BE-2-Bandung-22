@@ -21,8 +21,8 @@ app.get("/", async (req, res) => {
 app.use("/Menu", menuRoutes);
 
 // messages routes
-app.use("/Transaksi", transaksi_dineinRoutes);
-app.use("/Transaksi", transaksi_takeawayRoutes);
+app.use("/DineIn", transaksi_dineinRoutes);
+app.use("/TakeAway", transaksi_takeawayRoutes);
 app.all("*", async (req, res) => {
   res.json({
     message: "Routes you're looking is not found",

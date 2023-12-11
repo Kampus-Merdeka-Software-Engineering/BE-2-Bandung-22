@@ -4,8 +4,8 @@ const { prisma } = require("../config/prisma");
 
 //get all transaksi
 transaksi_takeawayRoutes.get("/", async (req, res) => {
-  const transaksi_takeaway = await prisma.transaksi_takeaway.findMany();
-  res.status(200).send(transaksi_takeaway);
+  const takeaway = await prisma.takeaway.findMany();
+  res.status(200).send(takeaway);
 });
 
 // get transaksi by idTransaksi
